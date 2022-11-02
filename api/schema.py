@@ -8,7 +8,7 @@ class Task(graphene.ObjectType):
     is_closed = graphene.Boolean()
     name = graphene.String()
     content = graphene.String()
-
+    reopen_date = graphene.DateTime()
 
 
 class Query:
@@ -25,6 +25,8 @@ class Query:
         creation_date__lte=graphene.DateTime(),
         closing_date__gte=graphene.DateTime(),
         closing_date__lte=graphene.DateTime(),
+        reopen_date__gte=graphene.DateTime(),
+        reopen_date__lte=graphene.DateTime(),
         is_closed=graphene.Boolean()
     )
 
