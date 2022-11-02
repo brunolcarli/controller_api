@@ -17,9 +17,9 @@ class Query:
     def resolve_version(self, info, **kwargs):
         return '0.0.0'
 
-
     tasks = graphene.List(
         Task,
+        username=graphene.String(required=True),
         name__icontains=graphene.String(),
         creation_date__gte=graphene.DateTime(),
         creation_date__lte=graphene.DateTime(),
@@ -38,6 +38,7 @@ class CreateTask(graphene.relay.ClientIDMutation):
     task = graphene.Field(Task)
 
     class Input:
+        username = graphene.String(required=True)
         name = graphene.String(required=True)
         creation_date = graphene.DateTime(required=True)
         content = graphene.String()
