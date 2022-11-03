@@ -9,6 +9,7 @@ class Task(graphene.ObjectType):
     name = graphene.String()
     content = graphene.String()
     reopen_date = graphene.DateTime()
+    task_id  = graphene.ID()
 
 
 class Query:
